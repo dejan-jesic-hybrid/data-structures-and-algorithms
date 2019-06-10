@@ -6,7 +6,7 @@
 - No indices - no random access.
 - There is not array to store objects, instead each item is added to the 
 list as independent object and memory pointers are added to the previous
-and the next item in the list to create an order of the items. 
+and the next item in the list to create an order of the items.
 - As we take one item from the list we know which item is before and after
 it within the list. If we remove an item from the list pointers and next
 pointers are updated.

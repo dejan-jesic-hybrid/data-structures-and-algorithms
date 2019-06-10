@@ -29,3 +29,9 @@ two objects only if they physically are same objects in memory.
 ![hash map hash code](images/hash-map-hash-code.png)
 
 ![hash map resizing](images/hash-map-resizing.png)
+
+## Linked hash map
+
+- Extends HashMap. 
+- Iteration through the linked hash map is in defined order, items can 
+be retrieved in the same order they were added.
