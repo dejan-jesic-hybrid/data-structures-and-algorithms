@@ -1,5 +1,3 @@
-# Data structures
-
 ## Array list
 
 * **Can hold anything**
@@ -32,6 +30,12 @@ private int newCapacity(int minCapacity) {
         ? newCapacity
         : hugeCapacity(minCapacity);
 }
+```
+
+### Example:
+
+```java
+
 ```
 
 - *Resizing* of array list could be inefficient.

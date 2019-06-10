@@ -1,16 +1,21 @@
 ## Stack
 
-- Build on top of linked list data structure, actually high level API.
 - LIFO
-- Simple API: push(), pop(), peak(), isEmpty()
+- Build on top of linked list data structure, actually high level API.
+- Simple API: `push()`, `pop()`, `peak()`, `isEmpty()`
 
-- **Killer feature:** `push()`, `pop()`
+![stack](images/stack.png)
 
+- Access, search **O(n)**
+- **Killer feature:** `push()`, `pop()` **O(1)**
 
 ## Queue
 
-- Build on top of linked list data structure, actually high level API.
 - FIFO
-- Simple API: add(), remove(), peak(), isEmpty()
+- Build on top of linked list data structure, actually high level API.
+- Simple API: `add()`, `remove()`, `peak()`, `isEmpty()`
 
-- **Killer feature:** `add()`, `remove()`
+![queue](images/queue.png)
+
+- Access, search **O(n)**
+- **Killer feature:** `add()`, `remove()` **O(1)**
