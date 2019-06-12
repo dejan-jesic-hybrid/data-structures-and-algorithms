@@ -32,12 +32,6 @@ private int newCapacity(int minCapacity) {
 }
 ```
 
-### Example:
-
-```java
-
-```
-
 - *Resizing* of array list could be inefficient.
   
 ![array list resizing](images/array-list.png)
