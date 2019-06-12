@@ -66,3 +66,7 @@ hashing algorithm
 - Extends HashMap. 
 - Iteration through the linked hash map is in defined order, items can 
 be retrieved in the same order they were added.
+
+* *Linked* objects *(red triangle - ; green triangle - )*
+
+![linked hash map](../images/linked-hash-map-order.png)
