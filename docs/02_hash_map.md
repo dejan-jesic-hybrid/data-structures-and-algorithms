@@ -26,19 +26,23 @@ two objects only if they physically are same objects in memory.
 
 * ***Hash code*** calculation
 ```java
-public static int hashCode(Object a[]) {
-
-    // a[] fields in class that are going to be used for hash calculation
-
-    if (a == null)
-        return 0;
-
-    int result = 1;
-
-    for (Object element : a)
-        result = 31 * result + (element == null ? 0 : element.hashCode());
-
-    return result;
+class Arrays {
+    ...
+    public static int hashCode(Object a[]) {
+    
+        // a[] fields in class that are going to be used for hash calculation
+    
+        if (a == null)
+            return 0;
+    
+        int result = 1;
+    
+        for (Object element : a)
+            result = 31 * result + (element == null ? 0 : element.hashCode());
+    
+        return result;
+    }
+    ...
 }
 ```
 
