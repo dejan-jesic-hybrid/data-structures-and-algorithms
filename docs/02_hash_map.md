@@ -3,15 +3,15 @@
 ## Hash map
 
 - Iteration through the hash map is in 'random' order.
-- Time taken to retrieve item from hash map by it's key would be the same
-for big sized hash maps.
+- Time taken to retrieve item from hash map by it's key would be the 
+same for big sized hash maps.
 - When hash map is instantiated, java creates array of 16 elements. When 
 you add item to the hash map java converts key to integer value and then
 takes module of that integer when it's divided by 16 (initial size of 
 hash map). Every object has hashCode() it's inherited from 
 `java.lang.Object` so java uses that method to determine hash code of 
-the key. So hash map can contain 4 items in the same bucket 
-(etc. module == 4).
+the key. So hash map can contain 4 items in the same bucket.
+*etc. (module == 4, \[obj1.hashCode() == 20, obj1.hashCode() == 36\])*
 - Each bucket contains linked list.
 - Default size of hash map is 16, and default factor is 0.75. When hash 
 map is populated by 75% (3/4 of the buckets have 1+ elements within 
@@ -24,11 +24,42 @@ implement hashCode() and equals() methods. We should not rely on default
 implementation of hashCode() since java will return the same value for 
 two objects only if they physically are same objects in memory.
 
-![hash map bucket](images/hash-map-bucket.png)
+* ***Hash code*** calculation
+```java
+public static int hashCode(Object a[]) {
 
-![hash map hash code](images/hash-map-hash-code.png)
+    // a[] fields in class that are going to be used for hash calculation
 
-![hash map resizing](images/hash-map-resizing.png)
+    if (a == null)
+        return 0;
+
+    int result = 1;
+
+    for (Object element : a)
+        result = 31 * result + (element == null ? 0 : element.hashCode());
+
+    return result;
+}
+```
+
+* *Collision* within one bucket
+
+![hash map collision](../images/hash-map-collision.png)
+
+* *Index* calculation `int index = hashCode % INITIAL_SIZE`
+
+![hash map hash code](../images/hash-map-mod.png)
+
+* *Chaining* store linked list within one bucket
+
+![hash map bucket](../images/hash-map-bucket.png)
+
+* *Resizing* of hash map
+
+![hash map resizing](../images/hash-map-resizing.png)
+
+- **Killer feature:** Search, insert, delete O(1) -> O(n) depends on 
+hashing algorithm
 
 ## Linked hash map
 

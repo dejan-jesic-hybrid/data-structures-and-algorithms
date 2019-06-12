@@ -34,10 +34,10 @@ private int newCapacity(int minCapacity) {
 
 - *Resizing* of array list could be inefficient.
   
-![array list resizing](images/array-list.png)
+![array list resizing](../images/array-list.png)
 
 - *Removing* could also be inefficient.
 
-![array list removing](images/array-list-shifting-after-remove.png)
+![array list removing](../images/array-list-shifting-after-remove.png)
 
 - **Killer feature:** Random access O(1)
