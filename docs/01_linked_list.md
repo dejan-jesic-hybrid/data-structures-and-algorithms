@@ -1,5 +1,3 @@
-# Data structures
-
 ## Linked list
 
 * Sequence of nodes/objects.

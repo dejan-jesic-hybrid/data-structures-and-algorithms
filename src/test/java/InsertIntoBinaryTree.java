@@ -8,7 +8,7 @@ import model.Player;
 import org.junit.Test;
 import util.BinaryTreePrinter;
 
-public class Insert extends AbstractCommonData {
+public class InsertIntoBinaryTree extends AbstractCommonData {
 
 	@Test
 	public void insertDataIntoBinaryTree() {

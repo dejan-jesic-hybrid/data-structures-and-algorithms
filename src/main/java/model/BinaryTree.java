@@ -13,7 +13,7 @@ public class BinaryTree {
 
 	@Getter
 	@Setter
-	@RequiredArgsConstructor()
+	@RequiredArgsConstructor
 	public static class Node {
 
 		// player's rank

@@ -5,7 +5,7 @@ import java.util.List;
 import model.Player;
 import org.junit.Test;
 
-public class Get extends AbstractCommonData {
+public class GetElement extends AbstractCommonData {
 
 	@Test
 	public void getItemArrayList() {

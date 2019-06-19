@@ -8,7 +8,7 @@ import java.util.Set;
 import model.Player;
 import org.junit.Test;
 
-public class Contains extends AbstractCommonData {
+public class ContainsElement extends AbstractCommonData {
 
 	@Test
 	public void containsItemInArrayListUsingNewButEqualObject() {

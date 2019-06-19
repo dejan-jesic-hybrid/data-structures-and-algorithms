@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import model.Player;
 import org.junit.Test;
 
-public class Sort extends AbstractCommonData {
+public class SortCollections extends AbstractCommonData {
 
 	@Test
 	public void sortItemsArrayList() {

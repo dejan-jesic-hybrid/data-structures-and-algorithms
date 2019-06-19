@@ -4,7 +4,7 @@ import java.util.List;
 import model.Player;
 import org.junit.Test;
 
-public class Initialize extends AbstractCommonData {
+public class InitializeList extends AbstractCommonData {
 
 	@Test
 	public void arrayListDefaultSize() {

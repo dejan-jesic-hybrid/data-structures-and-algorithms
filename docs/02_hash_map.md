@@ -1,5 +1,3 @@
-# Data structures
-
 ## Hash map
 
 - Iteration through the hash map is in 'random' order.
