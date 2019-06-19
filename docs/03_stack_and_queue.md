@@ -7,7 +7,7 @@
 ![stack](../images/stack.png)
 
 - Access, search **O(n)**
-- **Killer feature:** `push()`, `pop()` **O(1)**
+- **Killer feature:** `push()`, `pop()` ***O(1)***
 
 ## Queue
 
@@ -18,4 +18,4 @@
 ![queue](../images/queue.png)
 
 - Access, search **O(n)**
-- **Killer feature:** `add()`, `remove()` **O(1)**
+- **Killer feature:** `add()`, `remove()` ***O(1)***

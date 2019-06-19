@@ -25,4 +25,4 @@ is no need for iterating.
 
 ![linked list](../images/linked-list-nodes.png)
 
-- **Killer feature:** Add element at the start of linked list
+- **Killer feature:** Add element at the start of linked list ***O(1)***

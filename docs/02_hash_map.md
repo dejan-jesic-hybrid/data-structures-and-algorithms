@@ -62,7 +62,7 @@ class Arrays {
 
 ![hash map resizing](../images/hash-map-resizing.png)
 
-- **Killer feature:** Search, insert, delete O(1) -> O(n) depends on 
+- **Killer feature:** Search, insert, delete ***O(1) -> O(n)*** depends on 
 hashing algorithm
 
 ## Linked hash map
@@ -71,6 +71,6 @@ hashing algorithm
 - Iteration through the linked hash map is in defined order, items can 
 be retrieved in the same order they were added.
 
-* *Linked* objects *(red triangle - ; green triangle - )*
+* *Linked* objects *(red triangle - TODO; green triangle - TODO)*
 
 ![linked hash map](../images/linked-hash-map-order.png)

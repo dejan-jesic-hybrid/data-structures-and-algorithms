@@ -40,4 +40,4 @@ private int newCapacity(int minCapacity) {
 
 ![array list removing](../images/array-list-shifting-after-remove.png)
 
-- **Killer feature:** Random access O(1)
+- **Killer feature:** Random access ***O(1)***

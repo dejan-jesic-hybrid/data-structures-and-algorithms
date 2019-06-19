@@ -2,18 +2,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.TestObject;
+import model.Player;
 import org.junit.Test;
 
-public class GettingItemFromList extends AbstractData {
+public class Get extends AbstractCommonData {
 
 	@Test
 	public void getItemArrayList() {
-		List<TestObject> list = new ArrayList<>(100_000_000);
-		fillListWith_100_000_000_Items(testObject, list);
+		List<Player> players = new ArrayList<>(100_000_000);
+		add_100_000_000_Players(player, players);
 
 		var start = System.nanoTime();
-		list.get(50_000_000);
+		players.get(50_000_000);
 		var end = System.nanoTime();
 
 		System.err.println(String.format("Millis to get an item from array list: %s", toMillis(start, end)));
@@ -22,11 +22,11 @@ public class GettingItemFromList extends AbstractData {
 
 	@Test
 	public void getItemLinkedList() {
-		List<TestObject> list = new LinkedList<>();
-		fillListWith_100_000_000_Items(testObject, list);
+		List<Player> players = new LinkedList<>();
+		add_100_000_000_Players(player, players);
 
 		var start = System.nanoTime();
-		list.get(50_000_000);
+		players.get(50_000_000);
 		var end = System.nanoTime();
 
 		System.err.println(String.format("Millis to get an item from linked list: %s", toMillis(start, end)));

@@ -5,22 +5,20 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
-import model.TestObject;
+import model.Player;
 import org.junit.Test;
 
-public class SortingItemsInCollections extends AbstractData {
+public class Sort extends AbstractCommonData {
 
 	@Test
 	public void sortItemsArrayList() {
-		List<TestObject> list = new ArrayList<>();
-		fillListWith_100_000_000_Items(testObject, list);
-		list.forEach(item -> item.setString(UUID.randomUUID().toString()));
+		List<Player> players = new ArrayList<>();
+		add_100_000_000_Players(player, players);
 
 		var start = System.nanoTime();
-		list.sort(Comparator.comparing(TestObject::getString));
+		players.sort(Comparator.comparing(Player::getDescription));
 		var end = System.nanoTime();
 
 		System.err.println(String.format("Millis to sort items in array list: %s", toMillis(start, end)));
@@ -29,12 +27,11 @@ public class SortingItemsInCollections extends AbstractData {
 
 	@Test
 	public void sortItemsLinkedList() {
-		List<TestObject> list = new LinkedList<>();
-		fillListWith_100_000_000_Items(testObject, list);
-		list.forEach(item -> item.setString(UUID.randomUUID().toString()));
+		List<Player> players = new LinkedList<>();
+		add_100_000_000_Players(player, players);
 
 		var start = System.nanoTime();
-		list.sort(Comparator.comparing(TestObject::getString));
+		players.sort(Comparator.comparing(Player::getDescription));
 		var end = System.nanoTime();
 
 		System.err.println(String.format("Millis to sort items in linked list: %s", toMillis(start, end)));
@@ -43,11 +40,12 @@ public class SortingItemsInCollections extends AbstractData {
 
 	@Test
 	public void sortItemsHashSetUsingStreamAPI() {
-		Set<TestObject> set = new HashSet<>();
-		fillSetWith_100_000_000_Items(testObject, set);
+		Set<Player> players = new HashSet<>();
+		add_100_000_000_Players(player, players);
 
 		var start = System.nanoTime();
-		set.stream().sorted(Comparator.comparing(TestObject::getString))
+		var sortedPlayers = players.stream()
+			.sorted(Comparator.comparing(Player::getDescription))
 			.collect(Collectors.toCollection(LinkedHashSet::new));
 		var end = System.nanoTime();
 
@@ -57,11 +55,11 @@ public class SortingItemsInCollections extends AbstractData {
 
 	@Test
 	public void sortItemsHashSetUsingList() {
-		Set<TestObject> set = new HashSet<>();
-		fillSetWith_100_000_000_Items(testObject, set);
+		Set<Player> players = new HashSet<>();
+		add_100_000_000_Players(player, players);
 
 		var start = System.nanoTime();
-		new ArrayList<>(set).sort(Comparator.comparing(TestObject::getString));
+		new ArrayList<>(players).sort(Comparator.comparing(Player::getDescription));
 		var end = System.nanoTime();
 
 		System.err.println(String.format("Millis to sort items in set: %s", toMillis(start, end)));
