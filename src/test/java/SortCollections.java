@@ -1,3 +1,6 @@
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static java.util.concurrent.TimeUnit.NANOSECONDS;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -13,35 +16,35 @@ import org.junit.Test;
 public class SortCollections extends AbstractCommonData {
 
 	@Test
-	public void sortItemsArrayList() {
+	public void sortItemsInArrayList() {
 		List<Player> players = new ArrayList<>();
-		add_100_000_000_Players(player, players);
+		add_1_000_000_Players(player, players);
 
 		var start = System.nanoTime();
 		players.sort(Comparator.comparing(Player::getDescription));
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to sort items in array list: %s", toMillis(start, end)));
-		// Execution time: 792.924 millis (average)
+		System.err.println("sortItemsInArrayList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 14 millis
 	}
 
 	@Test
-	public void sortItemsLinkedList() {
+	public void sortItemsInLinkedList() {
 		List<Player> players = new LinkedList<>();
-		add_100_000_000_Players(player, players);
+		add_1_000_000_Players(player, players);
 
 		var start = System.nanoTime();
 		players.sort(Comparator.comparing(Player::getDescription));
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to sort items in linked list: %s", toMillis(start, end)));
-		// Execution time: 4843.979 millis (average)
+		System.err.println("sortItemsInLinkedList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 69 millis
 	}
 
 	@Test
-	public void sortItemsHashSetUsingStreamAPI() {
+	public void sortItemsInHashSetUsingStreamAPI() {
 		Set<Player> players = new HashSet<>();
-		add_100_000_000_Players(player, players);
+		add_1_000_000_Players(player, players);
 
 		var start = System.nanoTime();
 		var sortedPlayers = players.stream()
@@ -49,21 +52,21 @@ public class SortCollections extends AbstractCommonData {
 			.collect(Collectors.toCollection(LinkedHashSet::new));
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to sort items in set: %s", toMillis(start, end)));
-		// Execution time: ? (average)
+		System.err.println("sortItemsInHashSetUsingStreamAPI() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 1 millis
 	}
 
 	@Test
-	public void sortItemsHashSetUsingList() {
+	public void sortItemsInHashSetUsingList() {
 		Set<Player> players = new HashSet<>();
-		add_100_000_000_Players(player, players);
+		add_1_000_000_Players(player, players);
 
 		var start = System.nanoTime();
 		new ArrayList<>(players).sort(Comparator.comparing(Player::getDescription));
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to sort items in set: %s", toMillis(start, end)));
-		// Execution time: 16659.247 (average)
+		System.err.println("sortItemsInHashSetUsingList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 1 millis
 	}
 
 }

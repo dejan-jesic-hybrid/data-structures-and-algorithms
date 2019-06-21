@@ -1,8 +1,6 @@
 package model;
 
 import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -13,17 +11,23 @@ public class BinaryTree {
 
 	@Getter
 	@Setter
-	@RequiredArgsConstructor
 	public static class Node {
 
 		// player's rank
-		@NonNull
 		private int key;
 
-		@NonNull
 		private Player value;
 
 		private Node left, right;
+
+		private Node() {
+
+		}
+
+		private Node(final int key, final Player value) {
+			this.key = key;
+			this.value = value;
+		}
 
 	}
 

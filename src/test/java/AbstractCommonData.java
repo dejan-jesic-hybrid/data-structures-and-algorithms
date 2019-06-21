@@ -1,5 +1,3 @@
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +15,7 @@ abstract class AbstractCommonData {
 	@Before
 	public void init() {
 		player = Player.builder()
-			.name("Test player")
+			.name("Test name")
 			.age(20)
 			.country("SRB")
 			.dateOfBirth(LocalDate.EPOCH)
@@ -31,24 +29,18 @@ abstract class AbstractCommonData {
 			.build();
 	}
 
-	void add_100_000_000_Players(Player player, List<Player> players) {
-		for (int index = 0; index < 100_000_000; index++) {
+	void add_1_000_000_Players(Player player, List<Player> players) {
+		for (int index = 0; index < 1_000_000; index++) {
 			player.setDescription(UUID.randomUUID().toString());
 			players.add(player);
 		}
 	}
 
-	void add_100_000_000_Players(Player player, Set<Player> players) {
-		for (int index = 0; index < 100_000_000; index++) {
+	void add_1_000_000_Players(Player player, Set<Player> players) {
+		for (int index = 0; index < 1_000_000; index++) {
 			player.setDescription(UUID.randomUUID().toString());
 			players.add(player);
 		}
-	}
-
-	BigDecimal toMillis(long start, long end) {
-		return BigDecimal.valueOf((end - start))
-			.divide(BigDecimal.valueOf(1_000_000), RoundingMode.HALF_UP)
-			.setScale(3, RoundingMode.HALF_UP);
 	}
 
 	List<Player> getBestPlayersFromAtpList() {

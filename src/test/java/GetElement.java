@@ -1,3 +1,6 @@
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static java.util.concurrent.TimeUnit.NANOSECONDS;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,29 +11,29 @@ import org.junit.Test;
 public class GetElement extends AbstractCommonData {
 
 	@Test
-	public void getItemArrayList() {
-		List<Player> players = new ArrayList<>(100_000_000);
-		add_100_000_000_Players(player, players);
+	public void getMiddleItemFromArrayList() {
+		List<Player> players = new ArrayList<>(1_000_000);
+		add_1_000_000_Players(player, players);
 
 		var start = System.nanoTime();
-		players.get(50_000_000);
+		players.get(500_000);
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to get an item from array list: %s", toMillis(start, end)));
-		// Execution time: 0.009 millis (average)
+		System.err.println("getMiddleItemFromArrayList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 0 millis
 	}
 
 	@Test
-	public void getItemLinkedList() {
+	public void getMiddleItemFromLinkedList() {
 		List<Player> players = new LinkedList<>();
-		add_100_000_000_Players(player, players);
+		add_1_000_000_Players(player, players);
 
 		var start = System.nanoTime();
-		players.get(50_000_000);
+		players.get(500_000);
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to get an item from linked list: %s", toMillis(start, end)));
-		// Execution time: 197.437 millis (average)
+		System.err.println("getMiddleItemFromLinkedList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 7 millis
 	}
 
 }

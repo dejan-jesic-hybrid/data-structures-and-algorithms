@@ -1,3 +1,6 @@
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static java.util.concurrent.TimeUnit.NANOSECONDS;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,13 +13,16 @@ import org.junit.Test;
 
 public class ContainsElement extends AbstractCommonData {
 
+	private static final String SRB_COUNTRY = "SRB";
+
 	@Test
 	public void containsItemInArrayListUsingNewButEqualObject() {
 		List<Player> players = new ArrayList<>();
-		add_100_000_000_Players(player, players);
+		add_1_000_000_Players(player, players);
+		players.get(500_000).setName("Test name - middle");
 		var playerToSearch = Player.builder()
-			.name("Test player")
-			.country("SRB")
+			.name("Test name - middle")
+			.country(SRB_COUNTRY)
 			.dateOfBirth(LocalDate.EPOCH)
 			.build();
 
@@ -24,17 +30,17 @@ public class ContainsElement extends AbstractCommonData {
 		players.contains(playerToSearch);
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to find item in array list: %s", toMillis(start, end)));
-		// Execution time: 0.000 (average)
+		System.err.println("containsItemInArrayListUsingNewButEqualObject() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 0 millis
 	}
 
 	@Test
 	public void containsItemInArrayListUsingNewButUnequalObject() {
 		List<Player> players = new ArrayList<>();
-		add_100_000_000_Players(player, players);
+		add_1_000_000_Players(player, players);
 		var playerToSearch = Player.builder()
-			.name("Test player unequal name")
-			.country("SRB")
+			.name("Test name - unequal")
+			.country(SRB_COUNTRY)
 			.dateOfBirth(LocalDate.EPOCH)
 			.build();
 
@@ -42,18 +48,18 @@ public class ContainsElement extends AbstractCommonData {
 		players.contains(playerToSearch);
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to find item in array list: %s", toMillis(start, end)));
-		// Execution time: 574.000 millis (average)
+		System.err.println("containsItemInArrayListUsingNewButUnequalObject() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 8 millis
 	}
 
 	@Test
-	public void containsItemInLinkedList() {
+	public void containsItemInLinkedListUsingNewButEqualObject() {
 		List<Player> players = new LinkedList<>();
-		add_100_000_000_Players(player, players);
-		players.get(50_000_000).setName("Test contains in linked list");
+		add_1_000_000_Players(player, players);
+		players.get(500_000).setName("Test name - middle");
 		var playerToSearch = Player.builder()
-			.name("Test contains in linked list")
-			.country("SRB")
+			.name("Test name - middle")
+			.country(SRB_COUNTRY)
 			.dateOfBirth(LocalDate.EPOCH)
 			.build();
 
@@ -61,17 +67,35 @@ public class ContainsElement extends AbstractCommonData {
 		players.contains(playerToSearch);
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to find item in linked list: %s", toMillis(start, end)));
-		// Execution time: 879.000 (average)
+		System.err.println("containsItemInLinkedListUsingNewButEqualObject() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 0 millis
 	}
 
 	@Test
-	public void containsItemInHashSet() {
+	public void containsItemInLinkedListUsingNewButUnequalObject() {
+		List<Player> players = new LinkedList<>();
+		add_1_000_000_Players(player, players);
+		var playerToSearch = Player.builder()
+			.name("Test name - unequal")
+			.country(SRB_COUNTRY)
+			.dateOfBirth(LocalDate.EPOCH)
+			.build();
+
+		var start = System.nanoTime();
+		players.contains(playerToSearch);
+		var end = System.nanoTime();
+
+		System.err.println("containsItemInLinkedListUsingNewButUnequalObject() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 15 millis
+	}
+
+	@Test
+	public void containsItemInHashSetUsingNewButEqualObject() {
 		Set<Player> players = new HashSet<>();
-		add_100_000_000_Players(player, players);
+		add_1_000_000_Players(player, players);
 		var playerToSearch = Player.builder()
 			.name("Test player")
-			.country("SRB")
+			.country(SRB_COUNTRY)
 			.dateOfBirth(LocalDate.EPOCH)
 			.build();
 
@@ -79,8 +103,26 @@ public class ContainsElement extends AbstractCommonData {
 		players.contains(playerToSearch);
 		var end = System.nanoTime();
 
-		System.err.println(String.format("Millis to find item in hash set: %s", toMillis(start, end)));
-		// Execution time: 0.137 (average)
+		System.err.println("containsItemInHashSetUsingNewButEqualObject() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 0 millis
+	}
+
+	@Test
+	public void containsItemInHashSetUsingNewButUnequalObject() {
+		Set<Player> players = new HashSet<>();
+		add_1_000_000_Players(player, players);
+		var playerToSearch = Player.builder()
+			.name("Test player")
+			.country(SRB_COUNTRY)
+			.dateOfBirth(LocalDate.EPOCH)
+			.build();
+
+		var start = System.nanoTime();
+		players.contains(playerToSearch);
+		var end = System.nanoTime();
+
+		System.err.println("containsItemInHashSetUsingNewButUnequalObject() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		// Execution time: 0 millis
 	}
 
 }
