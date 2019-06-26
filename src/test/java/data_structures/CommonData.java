@@ -1,14 +1,19 @@
+package data_structures;
+
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import lombok.extern.slf4j.Slf4j;
 import model.Player;
 import model.Title;
 import org.junit.Before;
+import org.junit.Test;
 
-abstract class AbstractCommonData {
+@Slf4j
+public class CommonData {
 
 	Player player;
 
@@ -29,14 +34,19 @@ abstract class AbstractCommonData {
 			.build();
 	}
 
-	void add_1_000_000_Players(Player player, List<Player> players) {
+	@Test
+	public void load() {
+		log.error("Hello Hybrid!");
+	}
+
+	void addMillionPlayers(Player player, List<Player> players) {
 		for (int index = 0; index < 1_000_000; index++) {
 			player.setDescription(UUID.randomUUID().toString());
 			players.add(player);
 		}
 	}
 
-	void add_1_000_000_Players(Player player, Set<Player> players) {
+	void addMillionPlayers(Player player, Set<Player> players) {
 		for (int index = 0; index < 1_000_000; index++) {
 			player.setDescription(UUID.randomUUID().toString());
 			players.add(player);

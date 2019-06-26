@@ -1,23 +1,27 @@
+package data_structures;
+
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import model.Player;
 import org.junit.Test;
 
-public class InitializeList extends AbstractCommonData {
+@Slf4j
+public class InitializeList extends CommonData {
 
 	@Test
 	public void arrayListDefaultInstantiation() {
 		List<Player> players = new ArrayList<>();
 
 		var start = System.nanoTime();
-		add_1_000_000_Players(player, players);
+		addMillionPlayers(player, players);
 		var end = System.nanoTime();
 
-		System.err.println("arrayListDefaultInstantiation() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		log.error("arrayListDefaultInstantiation() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
 		// Execution time: 778 millis
 	}
 
@@ -26,10 +30,10 @@ public class InitializeList extends AbstractCommonData {
 		List<Player> players = new ArrayList<>(1_000_000);
 
 		var start = System.nanoTime();
-		add_1_000_000_Players(player, players);
+		addMillionPlayers(player, players);
 		var end = System.nanoTime();
 
-		System.err.println("arrayList_1_000_000_Instantiation() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		log.error("arrayList_1_000_000_Instantiation() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
 		// Execution time: 893 millis
 	}
 

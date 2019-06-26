@@ -6,9 +6,11 @@ import java.util.List;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import model.BinaryTree;
 import model.BinaryTree.Node;
 
+@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class BinaryTreePrinter {
 
@@ -32,17 +34,17 @@ public final class BinaryTreePrinter {
 		List<Node> newNodes = new ArrayList<>();
 		for (Node node : nodes) {
 			if (node != null) {
-				System.out.print(node.getKey());
+				log.info(String.valueOf(node.getKey()));
 				newNodes.add(node.getLeft());
 				newNodes.add(node.getRight());
 			} else {
 				newNodes.add(null);
 				newNodes.add(null);
-				System.out.print(" ");
+				log.info(" ");
 			}
 			BinaryTreePrinter.printWhitespaces(betweenSpaces);
 		}
-		System.out.println();
+		log.info("\n");
 
 		for (int i = 1; i <= endgeLines; i++) {
 			for (Node node : nodes) {
@@ -53,7 +55,7 @@ public final class BinaryTreePrinter {
 				}
 
 				if (node.getLeft() != null) {
-					System.out.print("/");
+					log.info("/");
 				} else {
 					BinaryTreePrinter.printWhitespaces(1);
 				}
@@ -61,7 +63,7 @@ public final class BinaryTreePrinter {
 				BinaryTreePrinter.printWhitespaces(i + i - 1);
 
 				if (node.getRight() != null) {
-					System.out.print("\\");
+					log.info("\\");
 				} else {
 					BinaryTreePrinter.printWhitespaces(1);
 				}
@@ -69,7 +71,7 @@ public final class BinaryTreePrinter {
 				BinaryTreePrinter.printWhitespaces(endgeLines + endgeLines - i);
 			}
 
-			System.out.println();
+			log.info("\n");
 		}
 
 		printNodeInternal(newNodes, level + 1, maxLevel);
@@ -77,7 +79,7 @@ public final class BinaryTreePrinter {
 
 	private static void printWhitespaces(int count) {
 		for (int i = 0; i < count; i++)
-			System.out.print(" ");
+			log.info(" ");
 	}
 
 	private static int maxLevel(Node node) {

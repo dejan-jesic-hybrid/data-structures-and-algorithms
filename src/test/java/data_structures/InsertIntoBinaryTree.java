@@ -1,3 +1,5 @@
+package data_structures;
+
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,7 +10,7 @@ import model.Player;
 import org.junit.Test;
 import util.BinaryTreePrinter;
 
-public class InsertIntoBinaryTree extends AbstractCommonData {
+public class InsertIntoBinaryTree extends CommonData {
 
 	@Test
 	public void insertDataIntoBinaryTree() {

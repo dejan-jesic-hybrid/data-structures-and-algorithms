@@ -18,7 +18,9 @@ public class BinaryTree {
 
 		private Player value;
 
-		private Node left, right;
+		private Node left;
+
+		private Node right;
 
 		private Node() {
 
