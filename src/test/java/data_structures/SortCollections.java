@@ -1,8 +1,5 @@
 package data_structures;
 
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static java.util.concurrent.TimeUnit.NANOSECONDS;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -11,7 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import lombok.extern.slf4j.Slf4j;
 import model.Player;
 import org.junit.Test;
@@ -24,12 +20,12 @@ public class SortCollections extends CommonData {
 		List<Player> players = new ArrayList<>();
 		addMillionPlayers(player, players);
 
-		var start = System.nanoTime();
+		var start = System.currentTimeMillis();
 		players.sort(Comparator.comparing(Player::getDescription));
-		var end = System.nanoTime();
+		var end = System.currentTimeMillis();
 
-		log.error("sortItemsInArrayList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
-		// Execution time: 14 millis
+		log.info("sortItemsInArrayList() = " + (end - start));
+		// Execution time: 18 millis
 	}
 
 	@Test
@@ -37,12 +33,12 @@ public class SortCollections extends CommonData {
 		List<Player> players = new LinkedList<>();
 		addMillionPlayers(player, players);
 
-		var start = System.nanoTime();
+		var start = System.currentTimeMillis();
 		players.sort(Comparator.comparing(Player::getDescription));
-		var end = System.nanoTime();
+		var end = System.currentTimeMillis();
 
-		log.error("sortItemsInLinkedList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
-		// Execution time: 69 millis
+		log.info("sortItemsInLinkedList() = " + (end - start));
+		// Execution time: 67 millis
 	}
 
 	@Test
@@ -50,14 +46,14 @@ public class SortCollections extends CommonData {
 		Set<Player> players = new HashSet<>();
 		addMillionPlayers(player, players);
 
-		var start = System.nanoTime();
+		var start = System.currentTimeMillis();
 		players.stream()
 			.sorted(Comparator.comparing(Player::getDescription))
 			.collect(Collectors.toCollection(LinkedHashSet::new));
-		var end = System.nanoTime();
+		var end = System.currentTimeMillis();
 
-		log.error("sortItemsInHashSetUsingStreamAPI() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
-		// Execution time: 1 millis
+		log.info("sortItemsInHashSetUsingStreamAPI() = " + (end - start));
+		// Execution time: 2 millis
 	}
 
 	@Test
@@ -65,12 +61,12 @@ public class SortCollections extends CommonData {
 		Set<Player> players = new HashSet<>();
 		addMillionPlayers(player, players);
 
-		var start = System.nanoTime();
+		var start = System.currentTimeMillis();
 		new ArrayList<>(players).sort(Comparator.comparing(Player::getDescription));
-		var end = System.nanoTime();
+		var end = System.currentTimeMillis();
 
-		log.error("sortItemsInHashSetUsingList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
-		// Execution time: 1 millis
+		log.info("sortItemsInHashSetUsingList() = " + (end - start));
+		// Execution time: 2 millis
 	}
 
 }

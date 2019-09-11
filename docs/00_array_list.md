@@ -14,21 +14,31 @@ background with 50% larger capacity and data from original array is
 copied to that new array. 
 - Original array is discarded by garbage collector.
 
-Java 12 code snippet `ArrayList.class`
 ```java
-private int newCapacity(int minCapacity) {
-    int oldCapacity = elementData.length;
-    int newCapacity = oldCapacity + (oldCapacity >> 1); 
-    if (newCapacity - minCapacity <= 0) {
-        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA)
-            return Math.max(DEFAULT_CAPACITY, minCapacity);
-        if (minCapacity < 0) // overflow
-            throw new OutOfMemoryError();
-        return minCapacity;
+public class ArrayList<E> extends AbstractList<E> 
+    implements List<E>, RandomAccess, Cloneable, java.io.Serializable {
+
+	// .....
+
+    private int newCapacity(int minCapacity) {
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity + (oldCapacity >> 1); 
+        // 1000 >> 0100 bitwise right shift operator
+        // 8 -> 4
+        if (newCapacity - minCapacity <= 0) {
+            if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA)
+                return Math.max(DEFAULT_CAPACITY, minCapacity);
+            if (minCapacity < 0) // overflow
+                throw new OutOfMemoryError();
+            return minCapacity;
+        }
+        return (newCapacity - MAX_ARRAY_SIZE <= 0)
+            ? newCapacity
+            : hugeCapacity(minCapacity);
     }
-    return (newCapacity - MAX_ARRAY_SIZE <= 0)
-        ? newCapacity
-        : hugeCapacity(minCapacity);
+
+    // .....
+
 }
 ```
 

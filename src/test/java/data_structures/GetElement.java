@@ -1,12 +1,8 @@
 package data_structures;
 
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static java.util.concurrent.TimeUnit.NANOSECONDS;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
 import lombok.extern.slf4j.Slf4j;
 import model.Player;
 import org.junit.Test;
@@ -19,11 +15,11 @@ public class GetElement extends CommonData {
 		List<Player> players = new ArrayList<>(1_000_000);
 		addMillionPlayers(player, players);
 
-		var start = System.nanoTime();
+		var start = System.currentTimeMillis();
 		players.get(500_000);
-		var end = System.nanoTime();
+		var end = System.currentTimeMillis();
 
-		log.error("getMiddleItemFromArrayList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		log.info("getMiddleItemFromArrayList() = " + (end - start));
 		// Execution time: 0 millis
 	}
 
@@ -32,11 +28,11 @@ public class GetElement extends CommonData {
 		List<Player> players = new LinkedList<>();
 		addMillionPlayers(player, players);
 
-		var start = System.nanoTime();
+		var start = System.currentTimeMillis();
 		players.get(500_000);
-		var end = System.nanoTime();
+		var end = System.currentTimeMillis();
 
-		log.error("getMiddleItemFromLinkedList() = " + MILLISECONDS.convert(end - start, NANOSECONDS));
+		log.info("getMiddleItemFromLinkedList() = " + (end - start));
 		// Execution time: 7 millis
 	}
 

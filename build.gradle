@@ -16,7 +16,8 @@ dependencies {
 
     testCompile 'org.slf4j:slf4j-api:1.7.26'
 
-    compile 'org.slf4j:slf4j-api:1.7.26'
+    compile 'org.slf4j:slf4j-simple:1.7.28'
+    compile 'org.slf4j:slf4j-api:1.7.28'
     compile 'org.projectlombok:lombok:1.18.8'
-    testCompile 'org.projectlombok:lombok:1.18.8'
+    compile 'org.projectlombok:lombok:1.18.8'
 }

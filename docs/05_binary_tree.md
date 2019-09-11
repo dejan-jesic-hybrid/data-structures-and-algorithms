@@ -1,18 +1,18 @@
 ## BinaryTree
 
-- Data is stored in nodes.
+- Data is stored in nodes
 - A binary tree is a recursive data structure where each node can have 
-2 children at most.
+2 children at most
 - A common type of binary tree is a binary search tree, in which every 
 node has a value that is greater than or equal to the node values in the 
 left sub-tree, and less than or equal to the node values in the right 
-sub-tree.
-- Super fast searching, one of the most used algorithms.
+sub-tree
+- Super fast searching, one of the most used algorithms
 - 3 types of trees:
     - Perfect (all interior nodes have the same depth or level)
     - Full (tree with 0 or 2 children)
     - Balanced (tree with minimal possible height)
-- Key is used to represent a node.
+- Key is used to represent a node
 
 ```java
 class Node {

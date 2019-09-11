@@ -36,7 +36,7 @@ public class CommonData {
 
 	@Test
 	public void load() {
-		log.error("Hello Hybrid!");
+		log.info("Hello Hybrid!");
 	}
 
 	void addMillionPlayers(Player player, List<Player> players) {

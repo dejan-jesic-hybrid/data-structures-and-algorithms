@@ -34,17 +34,17 @@ public final class BinaryTreePrinter {
 		List<Node> newNodes = new ArrayList<>();
 		for (Node node : nodes) {
 			if (node != null) {
-				log.info(String.valueOf(node.getKey()));
+				System.out.print(node.getKey());
 				newNodes.add(node.getLeft());
 				newNodes.add(node.getRight());
 			} else {
 				newNodes.add(null);
 				newNodes.add(null);
-				log.info(" ");
+				System.out.print(" ");
 			}
 			BinaryTreePrinter.printWhitespaces(betweenSpaces);
 		}
-		log.info("\n");
+		System.out.println("\n");
 
 		for (int i = 1; i <= endgeLines; i++) {
 			for (Node node : nodes) {
@@ -55,7 +55,7 @@ public final class BinaryTreePrinter {
 				}
 
 				if (node.getLeft() != null) {
-					log.info("/");
+					System.out.print("/");
 				} else {
 					BinaryTreePrinter.printWhitespaces(1);
 				}
@@ -63,7 +63,7 @@ public final class BinaryTreePrinter {
 				BinaryTreePrinter.printWhitespaces(i + i - 1);
 
 				if (node.getRight() != null) {
-					log.info("\\");
+					System.out.print("\\");
 				} else {
 					BinaryTreePrinter.printWhitespaces(1);
 				}
@@ -71,7 +71,7 @@ public final class BinaryTreePrinter {
 				BinaryTreePrinter.printWhitespaces(endgeLines + endgeLines - i);
 			}
 
-			log.info("\n");
+			System.out.println();
 		}
 
 		printNodeInternal(newNodes, level + 1, maxLevel);
@@ -79,7 +79,7 @@ public final class BinaryTreePrinter {
 
 	private static void printWhitespaces(int count) {
 		for (int i = 0; i < count; i++)
-			log.info(" ");
+			System.out.print(" ");
 	}
 
 	private static int maxLevel(Node node) {
