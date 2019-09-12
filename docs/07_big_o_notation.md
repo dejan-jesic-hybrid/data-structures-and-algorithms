@@ -3,6 +3,9 @@
 **Used to describe runtime characteristics of program and efficiency of the algorithm**
 
 
+![dzej](../images/dzej.jpg)
+
+
 **Common runtimes:**
 
 1. **O(1)** Constant time. Same amount of time, regardless of the number of elements. 

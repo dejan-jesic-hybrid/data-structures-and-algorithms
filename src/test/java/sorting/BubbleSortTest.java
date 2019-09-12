@@ -1,4 +1,4 @@
-package algorithms;
+package sorting;
 
 import org.junit.Assert;
 import org.junit.Before;

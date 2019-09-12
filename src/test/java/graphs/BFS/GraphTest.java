@@ -1,4 +1,4 @@
-package algorithms.graphs.BFS;
+package graphs.BFS;
 
 import org.junit.Before;
 import org.junit.Test;

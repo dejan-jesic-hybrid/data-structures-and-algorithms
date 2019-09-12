@@ -1,4 +1,4 @@
-package algorithms;
+package sorting;
 
 public class MergeSort {
 
@@ -85,7 +85,7 @@ public class MergeSort {
         printArray(arr);
     }
 
-    private void printArray(int arr[])
+    public void printArray(int arr[])
     {
         int n = arr.length;
         for (int i=0; i<n; ++i)
