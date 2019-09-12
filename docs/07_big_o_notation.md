@@ -8,10 +8,9 @@
 1. **O(1)** Constant time. Same amount of time, regardless of the number of elements. 
 2. **O(log n**) Logarithmic. When doubling number of elements doesn't double the time. Seen ofter in binary trees.
 3. **O(n)** Linear. Adding elements increases time linearly.
-4. **O(n log n)** Quasilinear. Every element has to be compared with every other element.
+4. **O(n log n)** Quasilinear. Seen in sorting algorithms in Divide and Conquer approach where we divide the problem into sub problems(divide) and solve them separately and then combine the solutions(conquer).
 5. **O(n²)** Quadratic complexity. Seen in nested loops.
 6. **O(2ⁿ)** Exponential. Feature of recursion.
-7. **O(n!)** ?
 
 
 ![big-o-cheat-sheet](../images/big-o.png)
