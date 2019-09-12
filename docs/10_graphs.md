@@ -25,6 +25,9 @@ Graph search algorithms
  * BFS - breadth first search
  * DFS - depth first search
  
+ ![graph](../images/graphs.png)
+
+ 
  **BFS**
  
  Uses queue(FIFO)
@@ -36,8 +39,9 @@ Graph search algorithms
  
  Uses stack(LIFO)
 
+![dfs](../images/dfs.gif)
+
  
 ![dfs](../images/dfs.png)
 
 
-![dfs](../images/dfs.gif)
