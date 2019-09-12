@@ -19,12 +19,12 @@ class Graph
         adj[v].add(w);
     }
 
-    // graphs.BFS traversal from a given source s
+    // BFS traversal from a given source s
     void BFS(int s) {
         // Mark all the vertices as not visited (false)
         boolean visited[] = new boolean[V];
 
-        // Create a queue for graphs.BFS
+        // Create a queue for BFS
         LinkedList<Integer> queue = new LinkedList<Integer>();
 
         // Mark the current node as visited and enqueue it

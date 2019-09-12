@@ -22,18 +22,17 @@
 
 Graph search algorithms
 
- * graphs.BFS - breadth first search
- * graphs.DFS - depth first search
+ * BFS - breadth first search
+ * DFS - depth first search
  
- **graphs.BFS**
+ **BFS**
  
  Uses queue(FIFO)
-![bfs](../images/bfs.png)
 
 
 ![bfs](../images/bfs.gif)
 
- **graphs.DFS**
+ **DFS**
  
  Uses stack(LIFO)
 
